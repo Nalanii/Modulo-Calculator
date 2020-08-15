@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Modulo Calculator{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <p id='level'>Level 1</p>
+    <button onclick='generateNums();' id='generate'>Generate Problem</button>
+    <p><p id='num1'></p> % <p id='num2'></p> = </p>
+    <input type='number' id='answer'></input>
+    <button onclick='checkAnswer();'>Grade</button>
+    <p id='results'></p>
+
+{% else %}
+  <p>You are not logged in</p>
+  <button><a href="{% url 'login' %}">Login</a></button>
+  <br />
+  <button><a href="{% url 'signup' %}">Sign Up</a></button>
+{% endif %}
+{% endblock %}
